@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_202131) do
+ActiveRecord::Schema.define(version: 2020_06_05_242131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,13 +41,22 @@ ActiveRecord::Schema.define(version: 2020_06_05_202131) do
     t.integer "quantity"
     t.bigint "customer_id", null: false
     t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_sales_on_customer_id"
     t.index ["item_id"], name: "index_sales_on_item_id"
+    t.index ["user_id"], name: "index_sales_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "firebaseId"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "items", "merchants"
   add_foreign_key "sales", "customers"
   add_foreign_key "sales", "items"
+  add_foreign_key "sales", "users"
 end

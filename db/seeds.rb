@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Sale.destroy_all
+User.destroy_all
 Item.destroy_all
 Customer.destroy_all
 Merchant.destroy_all
@@ -14,4 +15,5 @@ Merchant.destroy_all
 joe = Customer.create(name: "Joe")
 trader = Merchant.create(name: "Traders", address: "somewhere by the coast")
 long_bean = Item.create(description: "Long Beans", price: "5.99", merchant: trader)
-sale1 = Sale.create(customer: joe, item: long_bean, quantity: 10)
+user1 = User.create(firebaseId: "testingstring123123")
+sale1 = Sale.create(customer: joe, item: long_bean, user: user1 , quantity: 10)
