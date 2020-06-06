@@ -17,3 +17,7 @@ trader = Merchant.create(name: "Traders", address: "somewhere by the coast")
 long_bean = Item.create(description: "Long Beans", price: "5.99", merchant: trader)
 user1 = User.create(firebaseId: "testingstring123123")
 sale1 = Sale.create(customer: joe, item: long_bean, user: user1 , quantity: 10)
+Sale.create(customer: joe, item: long_bean, user: user1 , quantity: 10)
+
+Sale.create(customer: joe, item: long_bean, user: user1 , quantity: 10)
+

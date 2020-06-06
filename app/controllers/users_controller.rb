@@ -5,6 +5,16 @@ class UsersController < ApplicationController
     end
 
     def show
+        @user = User.find_or_create_by(firebaseId: params[:id])
         
+        render json: @user.to_json(
+            :include => [
+                :sales => {  :except => [:id, :customer_id, :item_id, :user_id, :updated_at],
+                            :include => [:item  , :customer , :merchant]
+                }
+            ]
+        )
     end
+
+    
 end
