@@ -11,6 +11,8 @@ Things you may want to cover:
 
 * Configuration: run `bundle install`
 
-* Database initialization: `rails db:setup` & `rails db:migrate`
+* Database creation: `rails db:setup` & `rails db:migrate`
+
+* Database initialization: `rails s`
 
 
